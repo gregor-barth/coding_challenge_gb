@@ -7,13 +7,12 @@ class MatchingPartnersQuery
 
   def call
     partners = Partner.all
-    partners.each do |p|
-      validate_geodata(p.lat, p.lon)
-    end
+    validate_geodata(lat, lon)
 
     partners = filter_by_service(partners)
     partners = filter_by_distance(partners)
-    sort_by_best_match(partners)
+    partners = sort_by_best_match(partners)
+    partners
   end
 
   private
@@ -33,14 +32,14 @@ class MatchingPartnersQuery
   end
 
   def sort_by_best_match(partners)
-    partners.sort do |a, b|
+    sorted_partners = partners.sort do |a, b|
       if a.rating == b.rating
-        b.rating <=> a.rating
-      else
         a.distance_to_target(lat, lon) <=> b.distance_to_target(lat, lon)
+      else
+        b.rating <=> a.rating
       end
     end
-    partners
+    sorted_partners
   end
 
   def validate_geodata(lat, lon)

@@ -38,6 +38,16 @@ Partner.create([
 
 # at Bhf Südkreuz
 Partner.create([
+  name: "Mr Lazy2",
+  experience: %w[wood carpet tiles],
+  lat: 52.454720,
+  lon: 13.576360,
+  operating_radius: 15_000,
+  rating: 5
+])
+
+# at Bhf Südkreuz
+Partner.create([
   name: "Mr Onlywood",
   experience: %w[wood],
   lat: 52.454720,
