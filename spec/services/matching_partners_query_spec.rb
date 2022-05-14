@@ -1,17 +1,17 @@
-require "rails-helper"
+require "rails_helper"
 
 RSpec.describe MatchingPartnersQuery do
   it "filters out partners without matching experiences" do
-    pending
+    skip
   end
 
   it "filters out partners without matching experiences" do
-    pending
+    skip
   end
 
   context "whit invalid geodata" do
     it "raises an argument error" do
-      pending
+      skip
     end
   end
 end

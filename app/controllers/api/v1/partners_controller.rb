@@ -5,9 +5,8 @@ module Api
         partners = MatchingPartnersQuery.new(index_params).call
 
         render json: partners,
-          only: [:name, :experience, :lat, :lon, :operating_radius, :rating],
-          status: :ok
-
+               only: %i[name experience lat lon operating_radius rating],
+               status: :ok
       end
 
       private
