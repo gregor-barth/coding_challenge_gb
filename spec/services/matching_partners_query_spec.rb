@@ -2,33 +2,33 @@ require "rails_helper"
 
 RSpec.describe MatchingPartnersQuery do
   it "filters out partners without matching experiences" do
-    partner1 = create(:partner, experience: ["tiles"])
-    partner2 = create(:partner)
+    partner = create(:partner)
+    create(:partner, experience: ["tiles"])
 
     params = {
-        "service" => "carpet",
-        "lat" => partner2.lat,
-        "lon" => partner2.lon
-      }
+      "service" => "carpet",
+      "lat" => partner.lat,
+      "lon" => partner.lon
+    }
 
     result = described_class.new(params).call
 
-    expect(result).to eq([partner2])
+    expect(result).to eq([partner])
   end
 
   it "filters out partners which are not servicing the target area" do
-    partner1 = create(:partner, lat: 10, lon: 10, operating_radius: 1)
-    partner2 = create(:partner)
+    partner = create(:partner)
+    create(:partner, lat: 10, lon: 10, operating_radius: 1)
 
     params = {
-        "service" => "carpet",
-        "lat" => partner2.lat,
-        "lon" => partner2.lon
-      }
+      "service" => "carpet",
+      "lat" => partner.lat,
+      "lon" => partner.lon
+    }
 
     result = described_class.new(params).call
 
-    expect(result).to eq([partner2])
+    expect(result).to eq([partner])
   end
 
   it "orders the partners by rating first and distance second" do
@@ -37,10 +37,10 @@ RSpec.describe MatchingPartnersQuery do
     partner3 = create(:partner, lat: 10, lon: 10.000001, rating: 5)
 
     params = {
-        "service" => "carpet",
-        "lat" => partner2.lat,
-        "lon" => partner2.lon
-      }
+      "service" => "carpet",
+      "lat" => partner2.lat,
+      "lon" => partner2.lon
+    }
 
     result = described_class.new(params).call
 

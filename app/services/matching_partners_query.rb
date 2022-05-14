@@ -11,8 +11,7 @@ class MatchingPartnersQuery
 
     partners = filter_by_service(partners)
     partners = filter_by_distance(partners)
-    partners = sort_by_best_match(partners)
-    partners
+    sort_by_best_match(partners)
   end
 
   private
@@ -32,14 +31,13 @@ class MatchingPartnersQuery
   end
 
   def sort_by_best_match(partners)
-    sorted_partners = partners.sort do |a, b|
+    partners.sort do |a, b|
       if a.rating == b.rating
         a.distance_to_target(lat, lon) <=> b.distance_to_target(lat, lon)
       else
         b.rating <=> a.rating
       end
     end
-    sorted_partners
   end
 
   def validate_geodata(lat, lon)
