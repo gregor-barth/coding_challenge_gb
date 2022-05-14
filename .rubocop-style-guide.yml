@@ -1,0 +1,72 @@
+Lint/MissingSuper:
+  Enabled: false
+
+Layout/ArgumentAlignment:
+  Enabled: false
+
+Layout/ParameterAlignment:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/CaseIndentation:
+  EnforcedStyle: end
+
+Layout/ClosingParenthesisIndentation:
+  Enabled: false
+
+Layout/EndAlignment:
+  EnforcedStyleAlignWith: variable
+
+Layout/FirstArgumentIndentation:
+  EnforcedStyle: consistent
+
+Layout/FirstArrayElementIndentation:
+  EnforcedStyle: consistent
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/ClassLength:
+  Max: 199
+
+Layout/LineLength:
+  Max: 80
+
+Metrics/MethodLength:
+  Max: 25
+
+Style/AccessorGrouping:
+  Enabled: false
+
+Style/BisectedAttrAccessor:
+  Enabled: false
+
+Style/CollectionMethods:
+  PreferredMethods:
+    find: detect
+    reduce: inject
+    collect: map
+    find_all: select
+
+Style/Documentation:
+  Enabled: false
+
+Style/ExplicitBlockArgument:
+  Enabled: false
+
+Style/Lambda:
+  Enabled: false
+
+Style/LambdaCall:
+  EnforcedStyle: call
+
+Style/RedundantRegexpEscape:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes

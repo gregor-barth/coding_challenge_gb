@@ -1,0 +1,87 @@
+inherit_from: .rubocop-style-guide.yml
+
+require:
+  - rubocop-rails
+
+AllCops:
+  TargetRubyVersion: 2.7.2
+  NewCops: enable
+  SuggestExtensions: false
+  Exclude:
+    - db/schema.rb
+    - db/migrate/*.rb
+    - config.ru
+    - config/application.rb
+    - config/environments/*
+    - config/initializers/*
+    - bin/*
+    - /**/bin/*
+    - vendor/**/*
+    - lib/tasks/**/*.rake
+
+Rails:
+  Enabled: true
+  Exclude:
+    - lib/**/*.rb
+
+Layout/LineLength:
+  Exclude:
+    - spec/rails_helper.rb
+    - spec/spec_helper.rb
+    - spec/swagger_helper.rb
+    - config/secrets.yml
+    - config/puma.rb
+    - config/boot.rb
+    - db/seeds.rb
+    - db/migrate/*.rb
+    - bin/*.rb
+    - Rakefile
+
+# Temporarily disabled until https://github.com/rubocop-hq/rubocop/pull/8026 is
+# merged.
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
+
+Rails/HasAndBelongsToMany:
+  Enabled: false
+
+Rails/SkipsModelValidations:
+  Enabled: false
+
+Rails/DynamicFindBy:
+  Enabled: false
+
+Metrics/ClassLength:
+  Exclude:
+    - "app/docs/swagger/**/*"
+
+Rails/FilePath:
+  Enabled: false
+
+Rails/InverseOf:
+  Enabled: false
+
+Naming/VariableNumber:
+  Enabled: false
+
+Style/OptionalBooleanParameter:
+  Enabled: false
+
+Naming/MethodParameterName:
+  AllowedNames:
+    - io
+    - id
+    - to
+    - _
+
+Rails/UnknownEnv:
+  Environments:
+    - development
+    - test
+    - production
