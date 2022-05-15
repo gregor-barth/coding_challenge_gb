@@ -6,9 +6,9 @@ class MatchingPartnersQuery
   end
 
   def call
-    partners = Partner.all
     validate_geodata(lat, lon)
 
+    partners = Partner.all
     partners = filter_by_service(partners)
     partners = filter_by_distance(partners)
     sort_by_best_match(partners)
