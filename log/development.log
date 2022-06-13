@@ -1103,3 +1103,225 @@ Processing by Api::V1::PartnersController#index as HTML
 Completed 200 OK in 6ms (Views: 0.8ms | ActiveRecord: 0.9ms)
 
 
+Started GET "/api/v1/partners?service=carpet,%20wood&lat=52.509232&lon=13.375840&floor_area=100&phone=030123456" for 127.0.0.1 at 2022-05-14 17:59:37 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::PartnersController#index as HTML
+  Parameters: {"service"=>"carpet, wood", "lat"=>"52.509232", "lon"=>"13.375840", "floor_area"=>"100", "phone"=>"030123456"}
+  [1m[36mPartner Load (1.1ms)[0m  [1m[34mSELECT "partners".* FROM "partners"[0m
+  [1m[36mPartner Load (0.5ms)[0m  [1m[34mSELECT "partners".* FROM "partners" WHERE (experience @> '{carpet, wood}')[0m
+Completed 200 OK in 18ms (Views: 0.5ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/api/v1/partners?service=wood&lat=52.509232&lon=13.375840&floor_area=100&phone=030123456" for 127.0.0.1 at 2022-05-14 18:00:04 +0200
+Started GET "/api/v1/partners?service=carpet&lat=52.509232&lon=13.375840&floor_area=100&phone=030123456" for 127.0.0.1 at 2022-05-14 18:00:14 +0200
+Processing by Api::V1::PartnersController#index as HTML
+  Parameters: {"service"=>"wood", "lat"=>"52.509232", "lon"=>"13.375840", "floor_area"=>"100", "phone"=>"030123456"}
+  [1m[36mPartner Load (0.4ms)[0m  [1m[34mSELECT "partners".* FROM "partners"[0m
+  [1m[36mPartner Load (0.3ms)[0m  [1m[34mSELECT "partners".* FROM "partners" WHERE (experience @> '{wood}')[0m
+Completed 200 OK in 13ms (Views: 0.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/v1/partners?service=wood&lat=52.509232&lon=13.375840&floor_area=100&phone=030123456" for 127.0.0.1 at 2022-05-14 18:00:14 +0200
+  
+Processing by Api::V1::PartnersController#index as HTML
+  Parameters: {"service"=>"carpet", "lat"=>"52.509232", "lon"=>"13.375840", "floor_area"=>"100", "phone"=>"030123456"}
+LoadError (Unable to autoload constant Api::V1::PartnersController, expected /Users/gregor.barth/Code/coding_challenge_gb/app/controllers/api/v1/partners_controller.rb to define it):
+  
+activesupport (5.0.7.2) lib/active_support/dependencies.rb:513:in `load_missing_constant'
+activesupport (5.0.7.2) lib/active_support/dependencies.rb:203:in `const_missing'
+activesupport (5.0.7.2) lib/active_support/inflector/methods.rb:270:in `const_get'
+activesupport (5.0.7.2) lib/active_support/inflector/methods.rb:270:in `block in constantize'
+activesupport (5.0.7.2) lib/active_support/inflector/methods.rb:266:in `each'
+activesupport (5.0.7.2) lib/active_support/inflector/methods.rb:266:in `inject'
+activesupport (5.0.7.2) lib/active_support/inflector/methods.rb:266:in `constantize'
+activesupport (5.0.7.2) lib/active_support/dependencies.rb:584:in `get'
+activesupport (5.0.7.2) lib/active_support/dependencies.rb:615:in `constantize'
+actionpack (5.0.7.2) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (5.0.7.2) lib/action_dispatch/routing/route_set.rb:44:in `controller'
+actionpack (5.0.7.2) lib/action_dispatch/routing/route_set.rb:30:in `serve'
+actionpack (5.0.7.2) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.7.2) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.7.2) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.7.2) lib/action_dispatch/routing/route_set.rb:727:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (5.0.7.2) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.7.2) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.7.2) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.7.2) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.7.2) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.7.2) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.7.2) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.7.2) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.7.2) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.0.7.2) lib/rails/engine.rb:522:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  [1m[36mPartner Load (0.3ms)[0m  [1m[34mSELECT "partners".* FROM "partners"[0m
+  [1m[36mPartner Load (0.3ms)[0m  [1m[34mSELECT "partners".* FROM "partners" WHERE (experience @> '{carpet}')[0m
+Completed 200 OK in 28ms (Views: 0.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/v1/partners?service=carpet&lat=52.509232&lon=13.375840&floor_area=100&phone=030123456" for 127.0.0.1 at 2022-05-14 18:02:39 +0200
+Processing by Api::V1::PartnersController#index as HTML
+  Parameters: {"service"=>"carpet", "lat"=>"52.509232", "lon"=>"13.375840", "floor_area"=>"100", "phone"=>"030123456"}
+  [1m[36mPartner Load (0.3ms)[0m  [1m[34mSELECT "partners".* FROM "partners"[0m
+  [1m[36mPartner Load (0.3ms)[0m  [1m[34mSELECT "partners".* FROM "partners" WHERE (experience @> '{carpet}')[0m
+Completed 200 OK in 13ms (Views: 0.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/v1/partners?service=carpet&lat=52.509232&lon=13.375840&floor_area=100&phone=030123456" for 127.0.0.1 at 2022-05-14 18:02:40 +0200
+Processing by Api::V1::PartnersController#index as HTML
+  Parameters: {"service"=>"carpet", "lat"=>"52.509232", "lon"=>"13.375840", "floor_area"=>"100", "phone"=>"030123456"}
+  [1m[36mPartner Load (4.3ms)[0m  [1m[34mSELECT "partners".* FROM "partners"[0m
+  [1m[36mPartner Load (0.7ms)[0m  [1m[34mSELECT "partners".* FROM "partners" WHERE (experience @> '{carpet}')[0m
+Completed 200 OK in 9ms (Views: 0.8ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/api/v1/partners?service=carpet&lat=52.509232&lon=13.375840&floor_area=100&phone=030123456" for 127.0.0.1 at 2022-05-14 18:02:50 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::PartnersController#index as HTML
+  Parameters: {"service"=>"carpet", "lat"=>"52.509232", "lon"=>"13.375840", "floor_area"=>"100", "phone"=>"030123456"}
+  [1m[36mPartner Load (0.5ms)[0m  [1m[34mSELECT "partners".* FROM "partners"[0m
+  [1m[36mPartner Load (0.5ms)[0m  [1m[34mSELECT "partners".* FROM "partners" WHERE (experience @> '{carpet}')[0m
+Completed 200 OK in 18ms (Views: 0.7ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/api/v1/partners?service=carpet&lat=52.509232&lon=13.375840&floor_area=100&phone=030123456" for 127.0.0.1 at 2022-05-14 18:03:03 +0200
+Processing by Api::V1::PartnersController#index as HTML
+  Parameters: {"service"=>"carpet", "lat"=>"52.509232", "lon"=>"13.375840", "floor_area"=>"100", "phone"=>"030123456"}
+  [1m[36mPartner Load (0.3ms)[0m  [1m[34mSELECT "partners".* FROM "partners"[0m
+  [1m[36mPartner Load (0.3ms)[0m  [1m[34mSELECT "partners".* FROM "partners" WHERE (experience @> '{carpet}')[0m
+Completed 200 OK in 14ms (Views: 0.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/v1/partners?service=carpet&lat=52.509232&lon=13.375840&floor_area=100&phone=030123456" for 127.0.0.1 at 2022-05-14 18:03:31 +0200
+Processing by Api::V1::PartnersController#index as HTML
+  Parameters: {"service"=>"carpet", "lat"=>"52.509232", "lon"=>"13.375840", "floor_area"=>"100", "phone"=>"030123456"}
+  [1m[36mPartner Load (1.3ms)[0m  [1m[34mSELECT "partners".* FROM "partners"[0m
+  [1m[36mPartner Load (2.1ms)[0m  [1m[34mSELECT "partners".* FROM "partners" WHERE (experience @> '{carpet}')[0m
+Completed 200 OK in 7ms (Views: 0.5ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/api/v1/partners?service=carpet&lat=52.509232&lon=13.375840&floor_area=100&phone=030123456" for 127.0.0.1 at 2022-05-14 18:03:48 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::PartnersController#index as HTML
+  Parameters: {"service"=>"carpet", "lat"=>"52.509232", "lon"=>"13.375840", "floor_area"=>"100", "phone"=>"030123456"}
+  [1m[36mPartner Load (0.7ms)[0m  [1m[34mSELECT "partners".* FROM "partners"[0m
+  [1m[36mPartner Load (0.6ms)[0m  [1m[34mSELECT "partners".* FROM "partners" WHERE (experience @> '{carpet}')[0m
+Completed 200 OK in 15ms (Views: 0.7ms | ActiveRecord: 4.5ms)
+
+
+  [1m[36mPartner Load (0.5ms)[0m  [1m[34mSELECT "partners".* FROM "partners"[0m
+  [1m[36mPartner Load (0.6ms)[0m  [1m[34mSELECT "partners".* FROM "partners" WHERE (experience @> '{carpet}')[0m
+  [1m[36mPartner Load (0.5ms)[0m  [1m[34mSELECT "partners".* FROM "partners"[0m
+  [1m[36mPartner Load (0.4ms)[0m  [1m[34mSELECT "partners".* FROM "partners" WHERE (experience @> '{carpet}')[0m
+Started GET "/api/v1/partners?service=carpet&lat=52.509232&lon=13.375840&floor_area=100&phone=030123456" for 127.0.0.1 at 2022-05-14 18:07:10 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::PartnersController#index as HTML
+  Parameters: {"service"=>"carpet", "lat"=>"52.509232", "lon"=>"13.375840", "floor_area"=>"100", "phone"=>"030123456"}
+  [1m[36mPartner Load (0.5ms)[0m  [1m[34mSELECT "partners".* FROM "partners"[0m
+  [1m[36mPartner Load (0.5ms)[0m  [1m[34mSELECT "partners".* FROM "partners" WHERE (experience @> '{carpet}')[0m
+Completed 200 OK in 39322ms (Views: 1.3ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/api/v1/partners?service=carpet&lat=52.509232&lon=13.375840&floor_area=100&phone=030123456" for 127.0.0.1 at 2022-05-14 18:08:02 +0200
+Processing by Api::V1::PartnersController#index as HTML
+  Parameters: {"service"=>"carpet", "lat"=>"52.509232", "lon"=>"13.375840", "floor_area"=>"100", "phone"=>"030123456"}
+  [1m[36mPartner Load (0.4ms)[0m  [1m[34mSELECT "partners".* FROM "partners"[0m
+  [1m[36mPartner Load (0.4ms)[0m  [1m[34mSELECT "partners".* FROM "partners" WHERE (experience @> '{carpet}')[0m
+Completed 200 OK in 17ms (Views: 0.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/v1/partners?service=carpet&lat=52.509232&lon=13.375840&floor_area=100&phone=030123456" for 127.0.0.1 at 2022-05-14 18:08:51 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::PartnersController#index as HTML
+  Parameters: {"service"=>"carpet", "lat"=>"52.509232", "lon"=>"13.375840", "floor_area"=>"100", "phone"=>"030123456"}
+  [1m[36mPartner Load (0.4ms)[0m  [1m[34mSELECT "partners".* FROM "partners"[0m
+  [1m[36mPartner Load (0.5ms)[0m  [1m[34mSELECT "partners".* FROM "partners" WHERE (experience @> '{carpet}')[0m
+Completed 200 OK in 15ms (Views: 0.6ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/api/v1/partners?service=carpet&lat=52.509232&lon=13.375840&floor_area=100&phone=030123456" for 127.0.0.1 at 2022-05-14 18:09:06 +0200
+Processing by Api::V1::PartnersController#index as HTML
+  Parameters: {"service"=>"carpet", "lat"=>"52.509232", "lon"=>"13.375840", "floor_area"=>"100", "phone"=>"030123456"}
+  [1m[36mPartner Load (0.3ms)[0m  [1m[34mSELECT "partners".* FROM "partners"[0m
+  [1m[36mPartner Load (1.0ms)[0m  [1m[34mSELECT "partners".* FROM "partners" WHERE (experience @> '{carpet}')[0m
+Completed 200 OK in 15ms (Views: 0.8ms | ActiveRecord: 1.3ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (198.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "coding_challenge_gb_development"[0m
+  [1m[35m (204.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "coding_challenge_gb_test"[0m
+  [1m[35m (441.7ms)[0m  [1m[35mCREATE DATABASE "coding_challenge_gb_development" ENCODING = 'unicode'[0m
+  [1m[35m (606.4ms)[0m  [1m[35mCREATE DATABASE "coding_challenge_gb_test" ENCODING = 'unicode'[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1579006800738244710);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePartners (20220513114947)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "partners" ("id" serial primary key, "name" character varying, "experience" character varying[] DEFAULT '{}', "lon" decimal(10,6), "lat" decimal(10,6), "operating_radius" integer DEFAULT 0, "rating" integer DEFAULT 0, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20220513114947"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-05-14 16:10:22.994478"], ["updated_at", "2022-05-14 16:10:22.994478"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1579006800738244710)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "partners" ("name", "experience", "lon", "lat", "operating_radius", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Johnson McTest"], ["experience", "{wood,carpet,tiles}"], ["lon", "13.37584"], ["lat", "52.509232"], ["operating_radius", 20000], ["rating", 3], ["created_at", "2022-05-14 16:10:23.028711"], ["updated_at", "2022-05-14 16:10:23.028711"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "partners" ("name", "experience", "lon", "lat", "operating_radius", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Martin Router King"], ["experience", "{carpet}"], ["lon", "13.49831"], ["lat", "52.51456"], ["operating_radius", 15000], ["rating", 5], ["created_at", "2022-05-14 16:10:23.031555"], ["updated_at", "2022-05-14 16:10:23.031555"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "partners" ("name", "experience", "lon", "lat", "operating_radius", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Mr Lazy"], ["experience", "{wood,carpet,tiles}"], ["lon", "13.57636"], ["lat", "52.45472"], ["operating_radius", 15000], ["rating", 4], ["created_at", "2022-05-14 16:10:23.035947"], ["updated_at", "2022-05-14 16:10:23.035947"]]
+  [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "partners" ("name", "experience", "lon", "lat", "operating_radius", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Mr Lazy2"], ["experience", "{wood,carpet,tiles}"], ["lon", "13.57636"], ["lat", "52.45472"], ["operating_radius", 15000], ["rating", 5], ["created_at", "2022-05-14 16:10:23.042434"], ["updated_at", "2022-05-14 16:10:23.042434"]]
+  [1m[35m (4.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "partners" ("name", "experience", "lon", "lat", "operating_radius", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Mr Onlywood"], ["experience", "{wood}"], ["lon", "13.57696"], ["lat", "52.45472"], ["operating_radius", 3000], ["rating", 1], ["created_at", "2022-05-14 16:10:23.048847"], ["updated_at", "2022-05-14 16:10:23.048847"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/api/v1/partners?service=carpet&lat=52.509232&lon=13.375840&floor_area=100&phone=030123456" for 127.0.0.1 at 2022-05-14 18:10:27 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::PartnersController#index as HTML
+  Parameters: {"service"=>"carpet", "lat"=>"52.509232", "lon"=>"13.375840", "floor_area"=>"100", "phone"=>"030123456"}
+  [1m[36mPartner Load (0.5ms)[0m  [1m[34mSELECT "partners".* FROM "partners"[0m
+  [1m[36mPartner Load (0.9ms)[0m  [1m[34mSELECT "partners".* FROM "partners" WHERE (experience @> '{carpet}')[0m
+Completed 200 OK in 21ms (Views: 1.1ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/api/v1/partners?service=carpet&lat=52.509232&lon=13.375840&floor_area=100&phone=030123456" for 127.0.0.1 at 2022-05-14 18:28:41 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::PartnersController#index as HTML
+  Parameters: {"service"=>"carpet", "lat"=>"52.509232", "lon"=>"13.375840", "floor_area"=>"100", "phone"=>"030123456"}
+  [1m[36mPartner Load (0.7ms)[0m  [1m[34mSELECT "partners".* FROM "partners" WHERE (experience @> '{carpet}')[0m
+Completed 200 OK in 15ms (Views: 0.8ms | ActiveRecord: 4.1ms)
+
+

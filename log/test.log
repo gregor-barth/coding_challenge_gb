@@ -138,3 +138,156 @@
   [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
   [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
   [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (129.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "coding_challenge_gb_test"[0m
+  [1m[35m (449.9ms)[0m  [1m[35mCREATE DATABASE "coding_challenge_gb_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "partners" ("id" serial primary key, "name" character varying, "experience" character varying[] DEFAULT '{}', "lon" decimal(10,6), "lat" decimal(10,6), "operating_radius" integer DEFAULT 0, "rating" integer DEFAULT 0, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (3.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20220513114947)[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "test"], ["created_at", "2022-05-14 16:13:12.093044"], ["updated_at", "2022-05-14 16:13:12.093044"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPartner Load (0.5ms)[0m  [1m[34mSELECT "partners".* FROM "partners"[0m
+  [1m[36mPartner Load (0.5ms)[0m  [1m[34mSELECT "partners".* FROM "partners" WHERE (experience @> '{carpet}')[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "partners" ("name", "experience", "lon", "lat", "operating_radius", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Johny Begood"], ["experience", "{tiles}"], ["lon", "-94.045933"], ["lat", "-20.180246"], ["operating_radius", 1000], ["rating", 3], ["created_at", "2022-05-14 16:17:11.190130"], ["updated_at", "2022-05-14 16:17:11.190130"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "partners" ("name", "experience", "lon", "lat", "operating_radius", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Johny Begood"], ["experience", "{wood,carpet,tiles}"], ["lon", "-83.273229"], ["lat", "68.083171"], ["operating_radius", 1000], ["rating", 3], ["created_at", "2022-05-14 16:17:11.193202"], ["updated_at", "2022-05-14 16:17:11.193202"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPartner Load (2.8ms)[0m  [1m[34mSELECT "partners".* FROM "partners" WHERE (experience @> '{carpet}')[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "partners" ("name", "experience", "lon", "lat", "operating_radius", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Johny Begood"], ["experience", "{tiles}"], ["lon", "-154.914573"], ["lat", "2.777748"], ["operating_radius", 1000], ["rating", 3], ["created_at", "2022-05-14 16:19:20.409142"], ["updated_at", "2022-05-14 16:19:20.409142"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "partners" ("name", "experience", "lon", "lat", "operating_radius", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Johny Begood"], ["experience", "{wood,carpet,tiles}"], ["lon", "-127.337732"], ["lat", "48.323647"], ["operating_radius", 1000], ["rating", 3], ["created_at", "2022-05-14 16:19:20.411451"], ["updated_at", "2022-05-14 16:19:20.411451"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPartner Load (0.5ms)[0m  [1m[34mSELECT "partners".* FROM "partners" WHERE (experience @> '{carpet}')[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "partners" ("name", "experience", "lon", "lat", "operating_radius", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Johny Begood"], ["experience", "{wood,carpet,tiles}"], ["lon", "10.0"], ["lat", "10.0"], ["operating_radius", 1], ["rating", 3], ["created_at", "2022-05-14 16:19:20.548576"], ["updated_at", "2022-05-14 16:19:20.548576"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "partners" ("name", "experience", "lon", "lat", "operating_radius", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Johny Begood"], ["experience", "{wood,carpet,tiles}"], ["lon", "88.082542"], ["lat", "-15.294558"], ["operating_radius", 1000], ["rating", 3], ["created_at", "2022-05-14 16:19:20.550519"], ["updated_at", "2022-05-14 16:19:20.550519"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPartner Load (0.2ms)[0m  [1m[34mSELECT "partners".* FROM "partners" WHERE (experience @> '{carpet}')[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "partners" ("name", "experience", "lon", "lat", "operating_radius", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Johny Begood"], ["experience", "{tiles}"], ["lon", "-13.896404"], ["lat", "25.327694"], ["operating_radius", 1000], ["rating", 3], ["created_at", "2022-05-14 16:23:25.627384"], ["updated_at", "2022-05-14 16:23:25.627384"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "partners" ("name", "experience", "lon", "lat", "operating_radius", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Johny Begood"], ["experience", "{wood,carpet,tiles}"], ["lon", "173.306506"], ["lat", "57.833472"], ["operating_radius", 1000], ["rating", 3], ["created_at", "2022-05-14 16:23:25.630414"], ["updated_at", "2022-05-14 16:23:25.630414"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPartner Load (0.5ms)[0m  [1m[34mSELECT "partners".* FROM "partners" WHERE (experience @> '{carpet}')[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "partners" ("name", "experience", "lon", "lat", "operating_radius", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Johny Begood"], ["experience", "{wood,carpet,tiles}"], ["lon", "10.0"], ["lat", "10.0"], ["operating_radius", 1], ["rating", 3], ["created_at", "2022-05-14 16:23:25.750935"], ["updated_at", "2022-05-14 16:23:25.750935"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "partners" ("name", "experience", "lon", "lat", "operating_radius", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Johny Begood"], ["experience", "{wood,carpet,tiles}"], ["lon", "158.811126"], ["lat", "-48.491788"], ["operating_radius", 1000], ["rating", 3], ["created_at", "2022-05-14 16:23:25.753681"], ["updated_at", "2022-05-14 16:23:25.753681"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPartner Load (0.3ms)[0m  [1m[34mSELECT "partners".* FROM "partners" WHERE (experience @> '{carpet}')[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "partners" ("name", "experience", "lon", "lat", "operating_radius", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Johny Begood"], ["experience", "{wood,carpet,tiles}"], ["lon", "10.0"], ["lat", "10.0"], ["operating_radius", 1000], ["rating", 1], ["created_at", "2022-05-14 16:23:25.758674"], ["updated_at", "2022-05-14 16:23:25.758674"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "partners" ("name", "experience", "lon", "lat", "operating_radius", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Johny Begood"], ["experience", "{wood,carpet,tiles}"], ["lon", "10.0"], ["lat", "10.0"], ["operating_radius", 1000], ["rating", 5], ["created_at", "2022-05-14 16:23:25.760668"], ["updated_at", "2022-05-14 16:23:25.760668"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "partners" ("name", "experience", "lon", "lat", "operating_radius", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Johny Begood"], ["experience", "{wood,carpet,tiles}"], ["lon", "10.000001"], ["lat", "10.0"], ["operating_radius", 1000], ["rating", 5], ["created_at", "2022-05-14 16:23:25.763564"], ["updated_at", "2022-05-14 16:23:25.763564"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPartner Load (0.2ms)[0m  [1m[34mSELECT "partners".* FROM "partners" WHERE (experience @> '{carpet}')[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "partners" ("name", "experience", "lon", "lat", "operating_radius", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Johny Begood"], ["experience", "{wood,carpet,tiles}"], ["lon", "-170.467912"], ["lat", "87.113177"], ["operating_radius", 1000], ["rating", 3], ["created_at", "2022-05-14 16:29:46.473553"], ["updated_at", "2022-05-14 16:29:46.473553"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "partners" ("name", "experience", "lon", "lat", "operating_radius", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Johny Begood"], ["experience", "{tiles}"], ["lon", "-29.782303"], ["lat", "-9.807093"], ["operating_radius", 1000], ["rating", 3], ["created_at", "2022-05-14 16:29:46.476090"], ["updated_at", "2022-05-14 16:29:46.476090"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPartner Load (1.5ms)[0m  [1m[34mSELECT "partners".* FROM "partners" WHERE (experience @> '{carpet}')[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "partners" ("name", "experience", "lon", "lat", "operating_radius", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Johny Begood"], ["experience", "{wood,carpet,tiles}"], ["lon", "-8.411911"], ["lat", "71.993778"], ["operating_radius", 1000], ["rating", 3], ["created_at", "2022-05-14 16:29:46.481742"], ["updated_at", "2022-05-14 16:29:46.481742"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "partners" ("name", "experience", "lon", "lat", "operating_radius", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Johny Begood"], ["experience", "{wood,carpet,tiles}"], ["lon", "10.0"], ["lat", "10.0"], ["operating_radius", 1], ["rating", 3], ["created_at", "2022-05-14 16:29:46.483603"], ["updated_at", "2022-05-14 16:29:46.483603"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPartner Load (0.2ms)[0m  [1m[34mSELECT "partners".* FROM "partners" WHERE (experience @> '{carpet}')[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "partners" ("name", "experience", "lon", "lat", "operating_radius", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Johny Begood"], ["experience", "{wood,carpet,tiles}"], ["lon", "10.0"], ["lat", "10.0"], ["operating_radius", 1000], ["rating", 1], ["created_at", "2022-05-14 16:29:46.488729"], ["updated_at", "2022-05-14 16:29:46.488729"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "partners" ("name", "experience", "lon", "lat", "operating_radius", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Johny Begood"], ["experience", "{wood,carpet,tiles}"], ["lon", "10.0"], ["lat", "10.0"], ["operating_radius", 1000], ["rating", 5], ["created_at", "2022-05-14 16:29:46.491008"], ["updated_at", "2022-05-14 16:29:46.491008"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "partners" ("name", "experience", "lon", "lat", "operating_radius", "rating", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "Johny Begood"], ["experience", "{wood,carpet,tiles}"], ["lon", "10.000001"], ["lat", "10.0"], ["operating_radius", 1000], ["rating", 5], ["created_at", "2022-05-14 16:29:46.492923"], ["updated_at", "2022-05-14 16:29:46.492923"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mPartner Load (1.2ms)[0m  [1m[34mSELECT "partners".* FROM "partners" WHERE (experience @> '{carpet}')[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
